@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubellite.WebApp", "Rubellite.WebApp\Rubellite.WebApp.csproj", "{7125E728-B27E-4512-831D-D9E0220A6D8C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{C59378F2-34C6-405D-80BA-E20667FA5635}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubellite.Domain.Core", "Rubellite.Domain.Core\Rubellite.Domain.Core.csproj", "{1D4A762F-9593-4F4A-A12D-A2383498D74F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubellite.Domain.Interfaces", "Rubellite.Domain.Interfaces\Rubellite.Domain.Interfaces.csproj", "{E1174410-D824-436F-AF41-37A11D5DBB21}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{70BDB367-E272-4FB9-8A03-A243EB176C36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubellite.Services.Interfaces", "Rubellite.Services.Interfaces\Rubellite.Services.Interfaces.csproj", "{590DE822-FE59-4E1F-A0A0-78897527B022}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{3A19C229-8EC8-499B-9061-E03FBEB7E46B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubellite.Infrastructure.Data", "Rubellite.Infrastructure.Data\Rubellite.Infrastructure.Data.csproj", "{EFFFD287-1827-4FAC-BD24-D3657F386BA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubellite.Infrastructure.Business", "Rubellite.Infrastructure.Business\Rubellite.Infrastructure.Business.csproj", "{FDF2779B-ECD2-4D71-8040-D2B8DE3B9A08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7125E728-B27E-4512-831D-D9E0220A6D8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7125E728-B27E-4512-831D-D9E0220A6D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7125E728-B27E-4512-831D-D9E0220A6D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7125E728-B27E-4512-831D-D9E0220A6D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D4A762F-9593-4F4A-A12D-A2383498D74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D4A762F-9593-4F4A-A12D-A2383498D74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D4A762F-9593-4F4A-A12D-A2383498D74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D4A762F-9593-4F4A-A12D-A2383498D74F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1174410-D824-436F-AF41-37A11D5DBB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1174410-D824-436F-AF41-37A11D5DBB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1174410-D824-436F-AF41-37A11D5DBB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1174410-D824-436F-AF41-37A11D5DBB21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{590DE822-FE59-4E1F-A0A0-78897527B022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590DE822-FE59-4E1F-A0A0-78897527B022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590DE822-FE59-4E1F-A0A0-78897527B022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590DE822-FE59-4E1F-A0A0-78897527B022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFFFD287-1827-4FAC-BD24-D3657F386BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFFFD287-1827-4FAC-BD24-D3657F386BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFFFD287-1827-4FAC-BD24-D3657F386BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFFFD287-1827-4FAC-BD24-D3657F386BA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDF2779B-ECD2-4D71-8040-D2B8DE3B9A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF2779B-ECD2-4D71-8040-D2B8DE3B9A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF2779B-ECD2-4D71-8040-D2B8DE3B9A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF2779B-ECD2-4D71-8040-D2B8DE3B9A08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1D4A762F-9593-4F4A-A12D-A2383498D74F} = {C59378F2-34C6-405D-80BA-E20667FA5635}
+		{E1174410-D824-436F-AF41-37A11D5DBB21} = {C59378F2-34C6-405D-80BA-E20667FA5635}
+		{590DE822-FE59-4E1F-A0A0-78897527B022} = {70BDB367-E272-4FB9-8A03-A243EB176C36}
+		{EFFFD287-1827-4FAC-BD24-D3657F386BA2} = {3A19C229-8EC8-499B-9061-E03FBEB7E46B}
+		{FDF2779B-ECD2-4D71-8040-D2B8DE3B9A08} = {3A19C229-8EC8-499B-9061-E03FBEB7E46B}
+	EndGlobalSection
+EndGlobal
