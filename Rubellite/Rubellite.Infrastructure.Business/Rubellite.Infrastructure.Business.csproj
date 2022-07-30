@@ -8,7 +8,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Rubellite.Services.Core\Rubellite.Services.Core.csproj" />
       <ProjectReference Include="..\Rubellite.Services.Interfaces\Rubellite.Services.Interfaces.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.7" />
+      <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.7" />
     </ItemGroup>
 
 </Project>

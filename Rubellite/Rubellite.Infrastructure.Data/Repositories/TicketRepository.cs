@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Rubellite.Domain.Core;
 using Rubellite.Domain.Interfaces;
+using Rubellite.Infrastructure.Data.DbContext;
 
 namespace Rubellite.Infrastructure.Data.Repositories;
 

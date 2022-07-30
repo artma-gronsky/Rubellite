@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubellite.Infrastructure.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubellite.Infrastructure.Business", "Rubellite.Infrastructure.Business\Rubellite.Infrastructure.Business.csproj", "{FDF2779B-ECD2-4D71-8040-D2B8DE3B9A08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubellite.Services.Core", "Rubellite.Services.Core\Rubellite.Services.Core.csproj", "{22155A2B-1C0D-4EA9-A214-4E59B45ABF1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{FDF2779B-ECD2-4D71-8040-D2B8DE3B9A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDF2779B-ECD2-4D71-8040-D2B8DE3B9A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDF2779B-ECD2-4D71-8040-D2B8DE3B9A08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22155A2B-1C0D-4EA9-A214-4E59B45ABF1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22155A2B-1C0D-4EA9-A214-4E59B45ABF1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22155A2B-1C0D-4EA9-A214-4E59B45ABF1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22155A2B-1C0D-4EA9-A214-4E59B45ABF1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1D4A762F-9593-4F4A-A12D-A2383498D74F} = {C59378F2-34C6-405D-80BA-E20667FA5635}
@@ -55,5 +61,6 @@ Global
 		{590DE822-FE59-4E1F-A0A0-78897527B022} = {70BDB367-E272-4FB9-8A03-A243EB176C36}
 		{EFFFD287-1827-4FAC-BD24-D3657F386BA2} = {3A19C229-8EC8-499B-9061-E03FBEB7E46B}
 		{FDF2779B-ECD2-4D71-8040-D2B8DE3B9A08} = {3A19C229-8EC8-499B-9061-E03FBEB7E46B}
+		{22155A2B-1C0D-4EA9-A214-4E59B45ABF1C} = {70BDB367-E272-4FB9-8A03-A243EB176C36}
 	EndGlobalSection
 EndGlobal

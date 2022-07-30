@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Rubellite.Domain.Core;
 using Rubellite.Infrastructure.Data.EntityConfigurations;
 
-namespace Rubellite.Infrastructure.Data;
+namespace Rubellite.Infrastructure.Data.DbContext;
 
 public class RubelliteContext: IdentityDbContext
 {
