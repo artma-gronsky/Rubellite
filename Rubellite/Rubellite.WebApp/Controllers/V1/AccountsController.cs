@@ -1,11 +1,12 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Rubellite.Infrastructure.Business.Accounts;
 using Rubellite.Services.Core.Accounts.DTOs;
 using Rubellite.Services.Core.Authorization;
+using Rubellite.Services.Interfaces.Accounts;
 
 namespace Rubellite.WebApp.Controllers.V1;
-
 [ApiController]
 [Route("v1/api/accounts")]
 public class AccountsController : ControllerBase
@@ -18,10 +19,11 @@ public class AccountsController : ControllerBase
     }
     
     [HttpPut("SignUp")]
-    public async Task<ActionResult<AuthenticationResult>> SignUp(
+    public async Task<ActionResult> SignUp(
         [FromBody] UserCredentials userCredentials)
     {
-        return Ok(await _accountsManagementService.Register(userCredentials));
+        await _accountsManagementService.Register(userCredentials);
+        return Ok();
     }
 
     [HttpPost("SignIn")]
@@ -30,11 +32,20 @@ public class AccountsController : ControllerBase
     {
         return Ok(await _accountsManagementService.Login(userCredentials));
     }
-
+    
     [Authorize]
-    [HttpPost("Info")]
-    public async Task<string?> Info()
+    [HttpPost("RefreshToken")]
+    public async Task<ActionResult<AuthenticationResult>> RefreshToken(
+        [FromBody] TokenModel tokenModel)
     {
-        return User.FindFirst(CustomClaimTypes.PreferredUsername)?.Value;
+        var id = User.FindFirstValue(RubelliteCustomClaims.UserId);
+        return Ok(await _accountsManagementService.RefreshAccess(id, tokenModel));
+    }
+    
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [HttpGet("info")]
+    public ActionResult Info()
+    {
+        return Ok(User.FindFirstValue(RubelliteCustomClaims.UserId));
     }
 }

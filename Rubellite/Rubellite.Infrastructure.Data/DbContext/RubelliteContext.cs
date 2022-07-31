@@ -5,7 +5,7 @@ using Rubellite.Infrastructure.Data.EntityConfigurations;
 
 namespace Rubellite.Infrastructure.Data.DbContext;
 
-public class RubelliteContext: IdentityDbContext
+public class RubelliteContext: IdentityDbContext<ApplicationUser>
 {
     public RubelliteContext(DbContextOptions options) : base(options)
     {

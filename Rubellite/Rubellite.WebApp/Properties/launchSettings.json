@@ -14,7 +14,9 @@
         "DatabaseSettings__Port": "5432",
         "DatabaseSettings__Database": "RubelliteDb",
         
-        "JwtSettings__Key": "ALKSMDLK5M43LK5M34LK5M34DLSKMFLK45M4LKMLKM3LK4M3LKM3LKMLKSDFM"
+        "JwtSettings__Key": "ALKSMDLK5M43LK5M34LK5M34DLSKMFLK45M4LKMLKM3LK4M3LKM3LKMLKSDFM",
+        "JwtSettings__TokenExpirationInMinutes": "5",
+        "JwtSettings__RefreshTokenExpirationsInDays": "1"
       },
       "applicationUrl": "https://localhost:44317"
     }

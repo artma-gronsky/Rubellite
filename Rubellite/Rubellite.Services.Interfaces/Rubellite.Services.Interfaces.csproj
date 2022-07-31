@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Rubellite.Domain.Core\Rubellite.Domain.Core.csproj" />
+      <ProjectReference Include="..\Rubellite.Services.Core\Rubellite.Services.Core.csproj" />
     </ItemGroup>
 
 </Project>
