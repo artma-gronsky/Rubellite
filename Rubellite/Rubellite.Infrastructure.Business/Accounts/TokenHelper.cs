@@ -58,7 +58,7 @@ public class TokenHelper : ITokenHelper
     }
 
 
-    public async Task ThrowIfCanNotRefreshToken(TokenModel tokenModel)
+    public async Task<AuthenticationResult> ObtainNewTokenByRefreshToken(TokenModel tokenModel)
     {
         if (tokenModel is null)
         {
@@ -73,8 +73,8 @@ public class TokenHelper : ITokenHelper
         {
             throw new BadHttpRequestException("Invalid access token or refresh token");
         }
-        
-        var id = principal.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value;
+
+        var id = principal.Claims.First(x => x.Type == RubelliteCustomClaims.UserId).Value;
         
         var user = await _userManager.FindByIdAsync(id);
 
@@ -82,6 +82,8 @@ public class TokenHelper : ITokenHelper
         {
             throw new BadHttpRequestException("Invalid access token or refresh token");
         }
+
+        return await CreateToken(user.Id);
     }
     
     private ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token)

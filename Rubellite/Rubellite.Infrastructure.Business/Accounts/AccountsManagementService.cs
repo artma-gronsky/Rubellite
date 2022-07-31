@@ -46,11 +46,9 @@ public class AccountsManagementService : IAccountsManagementService
         throw new BadHttpRequestException("Incorrect login or password");
     }
 
-    public async Task<AuthenticationResult> RefreshAccess(string userId, TokenModel tokenModel)
+    public async Task<AuthenticationResult> RefreshAccess(TokenModel tokenModel)
     {
-         await _tokenHelper.ThrowIfCanNotRefreshToken(tokenModel);
-         
-         return await _tokenHelper.CreateToken(userId);
+        return await _tokenHelper.ObtainNewTokenByRefreshToken(tokenModel);
     }
     
     public async Task GrantNewRole(RubelliteRoles roles, string userId)

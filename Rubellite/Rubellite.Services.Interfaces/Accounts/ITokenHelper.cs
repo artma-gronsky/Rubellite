@@ -6,5 +6,5 @@ public interface ITokenHelper
 {
     Task<AuthenticationResult> CreateToken(string id);
 
-    Task ThrowIfCanNotRefreshToken(TokenModel tokenModel);
+    Task<AuthenticationResult> ObtainNewTokenByRefreshToken(TokenModel tokenModel);
 }

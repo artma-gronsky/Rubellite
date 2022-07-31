@@ -1,10 +1,9 @@
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Rubellite.Services.Core.Accounts.DTOs;
 using Rubellite.Services.Core.Authorization;
 using Rubellite.Services.Interfaces.Accounts;
+using Rubellite.WebApp.Core.Attributes;
 
 namespace Rubellite.WebApp.Controllers.V1;
 [ApiController]
@@ -32,17 +31,15 @@ public class AccountsController : ControllerBase
     {
         return Ok(await _accountsManagementService.Login(userCredentials));
     }
-    
-    [Authorize]
+
     [HttpPost("RefreshToken")]
     public async Task<ActionResult<AuthenticationResult>> RefreshToken(
         [FromBody] TokenModel tokenModel)
     {
-        var id = User.FindFirstValue(RubelliteCustomClaims.UserId);
-        return Ok(await _accountsManagementService.RefreshAccess(id, tokenModel));
+        return Ok(await _accountsManagementService.RefreshAccess(tokenModel));
     }
     
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize]
     [HttpGet("info")]
     public ActionResult Info()
     {
