@@ -4,6 +4,7 @@ using Rubellite.Domain.Core;
 using Rubellite.Services.Core.Accounts;
 using Rubellite.Services.Core.Accounts.DTOs;
 using Rubellite.Services.Core.Authorization;
+using Rubellite.Services.Core.Exceptions;
 using Rubellite.Services.Interfaces.Accounts;
 
 namespace Rubellite.Infrastructure.Business.Accounts;
@@ -28,7 +29,7 @@ public class AccountsManagementService : IAccountsManagementService
         var result = await _userManager.CreateAsync(user, userCredentials.Password);
 
         if (!result.Succeeded)
-            throw new BadHttpRequestException(string.Join("\n ", result.Errors.Select(x => $"{x.Code} {x.Description}")));
+            throw new InputModelException(string.Join("\n ", result.Errors.Select(x => $"{x.Code} {x.Description}")));
     }
     
     public async Task<AuthenticationResult> Login(UserCredentials userCredentials)
@@ -43,7 +44,7 @@ public class AccountsManagementService : IAccountsManagementService
             return await _tokenHelper.CreateToken(user.Id);
         }
         
-        throw new BadHttpRequestException("Incorrect login or password");
+        throw new InputModelException("Incorrect login or password");
     }
 
     public async Task<AuthenticationResult> RefreshAccess(TokenModel tokenModel)

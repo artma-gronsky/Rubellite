@@ -1,7 +1,7 @@
 using System.Text;
+using Hellang.Middleware.ProblemDetails;
 using Rubellite.Services.Core.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -14,8 +14,8 @@ using Rubellite.Infrastructure.Business;
 using Rubellite.Infrastructure.Business.Accounts;
 using Rubellite.Infrastructure.Data.DbContext;
 using Rubellite.Infrastructure.Data.Repositories;
-using Rubellite.Services.Core.Accounts;
 using Rubellite.Services.Core.ConfigurationOptionsModels;
+using Rubellite.Services.Core.Exceptions;
 using Rubellite.Services.Interfaces;
 using Rubellite.Services.Interfaces.Accounts;
 
@@ -133,6 +133,22 @@ public static class ServiceCollectionExtensions
                     new List<string>()
                 }
             });
+        });
+    }
+    
+    
+    public static void ConfigureProblemDetails(this IServiceCollection services)
+    {
+        services.AddProblemDetails(c =>
+        {
+            c.IncludeExceptionDetails = (context, ex) =>
+            {
+                var environment = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
+                return environment.IsDevelopment();
+            };
+            
+            c.Map<InputModelException>(ex => new StatusCodeProblemDetails(StatusCodes.Status400BadRequest) {Detail = ex.Message});
+            c.Map<Exception>(ex => new StatusCodeProblemDetails(StatusCodes.Status500InternalServerError) {Detail = ex.Message});
         });
     }
     

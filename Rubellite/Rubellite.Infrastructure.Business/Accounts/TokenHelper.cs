@@ -2,7 +2,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -10,6 +9,7 @@ using Rubellite.Domain.Core;
 using Rubellite.Services.Core.Accounts.DTOs;
 using Rubellite.Services.Core.Authorization;
 using Rubellite.Services.Core.ConfigurationOptionsModels;
+using Rubellite.Services.Core.Exceptions;
 using Rubellite.Services.Interfaces.Accounts;
 
 namespace Rubellite.Infrastructure.Business.Accounts;
@@ -62,7 +62,7 @@ public class TokenHelper : ITokenHelper
     {
         if (tokenModel is null)
         {
-            throw new BadHttpRequestException("Invalid client request");
+            throw new InputModelException("Invalid client request");
         }
 
         var accessToken = tokenModel.AccessToken;
@@ -71,7 +71,7 @@ public class TokenHelper : ITokenHelper
         var principal = GetPrincipalFromExpiredToken(accessToken);
         if (principal == null)
         {
-            throw new BadHttpRequestException("Invalid access token or refresh token");
+            throw new InputModelException("Invalid access token or refresh token");
         }
 
         var id = principal.Claims.First(x => x.Type == RubelliteCustomClaims.UserId).Value;
@@ -80,7 +80,7 @@ public class TokenHelper : ITokenHelper
 
         if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
         {
-            throw new BadHttpRequestException("Invalid access token or refresh token");
+            throw new InputModelException("Invalid access token or refresh token");
         }
 
         return await CreateToken(user.Id);
